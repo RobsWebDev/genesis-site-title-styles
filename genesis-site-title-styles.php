@@ -13,7 +13,7 @@
  * Plugin Name:       Genesis Site Title Styles
  * Plugin URI:        https://github.com/savvyjackie/genesis-site-title-styles
  * Description:       Adds a span tag to each word in the site title for separate styling with css using the nth-child() selector.
- * Version:           0.2
+ * Version:           0.3
  * Author:            Jackie D'Elia and Ginger Coolidge
  * Author URI:        http://www.savvyjackiedesigns.com
  * Text Domain:       genesis-site-title-styles
@@ -50,9 +50,14 @@ function sjd_genesis_site_title( $title ) {
     $custom_title = preg_replace( '([a-zA-Z.,!?0-9]+(?![^<]*>))', '<span>$0</span>', $custom_title );
    
     // Don't change the rest of this
-    $inside = sprintf( '<a href="%s" title="%s">%s</a>', trailingslashit( home_url() ), esc_attr( get_bloginfo( 'name' ) ), $custom_title );
-    $title = '<h1 class="site-title" itemprop="headline">'. $inside .'</h1>';
-    return $title;
-    
+    // If we're on the front page or home page, use `h1` heading, otherwise us a `p` tag
+	$tag = ( is_home() || is_front_page() ) ? 'h1' : 'p';
+	
+    $inside = sprintf( '<a href="%s" title="%s">%s</a>', trailingslashit( home_url() ), esc_attr( get_bloginfo( 'name' ) ), $custom_title )
+;;
+    // Wrap link and title in semantic markup
+	$title = sprintf ( '<%s class="site-title" itemprop="headline">%s</%s>', $tag, $inside, $tag );
+	return $title;
 }
+
 ?>
