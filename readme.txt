@@ -45,7 +45,7 @@ Above example would target the first word in the site title. Change the number i
 
 .site-title span:nth-child(2) {
     color: #99d7da;
-	font-weight: 600;
+    font-weight: 600;
 }
 
 Above example would change the color and font weight of the second word.
