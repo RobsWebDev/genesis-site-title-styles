@@ -13,7 +13,7 @@
  * Plugin Name:       Genesis Site Title Styles
  * Plugin URI:        https://github.com/savvyjackie/genesis-site-title-styles
  * Description:       Adds a span tag to each word in the site title for separate styling with css using the nth-child() selector.
- * Version:           0.3
+ * Version:           0.4
  * Author:            Jackie D'Elia and Ginger Coolidge
  * Author URI:        http://www.savvyjackiedesigns.com
  * Text Domain:       genesis-site-title-styles
@@ -31,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Filter the site title
-add_filter( 'genesis_seo_title', 'sjd_genesis_site_title' );
+add_filter( 'genesis_seo_title', 'sjd_genesis_site_title', 15 );
 
 /**
  * Add additional markup to site title.
