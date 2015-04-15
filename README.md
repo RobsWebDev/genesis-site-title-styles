@@ -45,4 +45,5 @@ Built by [Jackie D'Elia](https://twitter.com/savvyjackie)
 Copyright 2015 [Jackie D'Elia](http://savvyjackiedesigns.com/) and [Ginger Coolidge](https://twitter.com/gscoolidge)
 
 Props to [Ginger Coolidge](https://twitter.com/gscoolidge) for the idea for the plugin and testing.
+
 Props to [Carrie Dils](https://twitter.com/cdils) for editing suggestions and walking us through deployment.
