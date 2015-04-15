@@ -51,8 +51,6 @@ Above example would target the first word in the site title. Change the number i
 Above example would change the color and font weight of the second word.
 
 
-
-
 == Changelog ==
 
 = 0.2 =
