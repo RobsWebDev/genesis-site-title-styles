@@ -30,24 +30,29 @@ if ( ! defined( 'ABSPATH' ) ) {
     die;
 }
 
-// Filter the title with a custom function
-add_filter('genesis_seo_title', 'sjd_genesis_site_title' );
+// Filter the site title
+add_filter( 'genesis_seo_title', 'sjd_genesis_site_title' );
 
 /**
- * Add additional custom style to site header by wrapping each word in a span 
+ * Add additional markup to site title.
+ * 
+ * Wrap each word of the title in a span tag, so that users can target that word specifically
+ * via CSS by utilizing the nth-of-type() selector.
  *
  * @since 0.1
  */
-function sjd_genesis_site_title($title) {
+function sjd_genesis_site_title( $title ) {
         
-    // Change $custom_title text as you wish
-    $custom_title = esc_attr( get_bloginfo( 'name' ));
-    $custom_title = preg_replace('([a-zA-Z.,!?0-9]+(?![^<]*>))', '<span>$0</span>', $custom_title);
-   
+    // Assign site title to a variable
+    $custom_title = esc_attr( get_bloginfo( 'name' ) );
     
+    // Add span tag to each word in title
+    $custom_title = preg_replace( '([a-zA-Z.,!?0-9]+(?![^<]*>))', '<span>$0</span>', $custom_title );
+   
     // Don't change the rest of this
     $inside = sprintf( '<a href="%s" title="%s">%s</a>', trailingslashit( home_url() ), esc_attr( get_bloginfo( 'name' ) ), $custom_title );
     $title = '<h1 class="site-title" itemprop="headline">'. $inside .'</h1>';
     return $title;
+    
 }
 ?>
