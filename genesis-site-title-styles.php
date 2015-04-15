@@ -51,13 +51,12 @@ function sjd_genesis_site_title( $title ) {
    
     // Don't change the rest of this
     // If we're on the front page or home page, use `h1` heading, otherwise us a `p` tag
-	$tag = ( is_home() || is_front_page() ) ? 'h1' : 'p';
-	
+    $tag = ( is_home() || is_front_page() ) ? 'h1' : 'p';
     $inside = sprintf( '<a href="%s" title="%s">%s</a>', trailingslashit( home_url() ), esc_attr( get_bloginfo( 'name' ) ), $custom_title )
 ;;
     // Wrap link and title in semantic markup
-	$title = sprintf ( '<%s class="site-title" itemprop="headline">%s</%s>', $tag, $inside, $tag );
-	return $title;
+    $title = sprintf ( '<%s class="site-title" itemprop="headline">%s</%s>', $tag, $inside, $tag );
+    return $title;
 }
 
 ?>
