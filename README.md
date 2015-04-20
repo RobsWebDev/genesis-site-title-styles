@@ -4,7 +4,7 @@ Wraps each word in the site title in a span tag for separate styling.
 
 ## Description
 
-This plugin adds a span tag to each word in the genesis site title. Each word in the title need to be separated by a space. You can style each word using css and target the span with the nth-child() selector. Based on code initially created by Carrie Dils post: http://www.carriedils.com/custom-site-title-genesis/
+This plugin adds a span tag to each word in the Genesis site title. Each word in the title need to be separated by a space. You can style each word using css and target the span with the nth-child() selector. Based on code initially created by Carrie Dils post: http://www.carriedils.com/custom-site-title-genesis/
 
 Why we wrote this plugin: http://savvyjackiedesigns.com/genesis-site-title-styles-plugin/
 
