@@ -52,6 +52,8 @@ Above example would change the color and font weight of the second word.
 
 
 == Changelog ==
+= 1.01 =
+Edited instructions.
 = 1.0 =
 Released.
 = 0.4 =
