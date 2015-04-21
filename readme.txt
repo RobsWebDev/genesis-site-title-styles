@@ -33,7 +33,7 @@ This plugin is designed for sites running on the Genesis Framework. While you co
 
 After activating the plugin, each word in your site title should be wrapped in a span tag.
 
-= How can I style the title span tags? 
+= How can I style the title span tags? =
 
 Add this your style.css in the section for your site title. Your class name may be different than .site-title so substitute as needed. 
 
