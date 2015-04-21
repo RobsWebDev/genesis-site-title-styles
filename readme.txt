@@ -57,7 +57,7 @@ Edited instructions.
 = 1.0 =
 Released.
 = 0.4 =
-Added lower priorty to filter to be sure it loads last.
+Added lower priority to filter to be sure it loads last.
 = 0.3 =
 Updated code to correct for h1/p tags. See https://gist.github.com/cdils/9002451#file-genesis-site-title-php
 = 0.2 =
