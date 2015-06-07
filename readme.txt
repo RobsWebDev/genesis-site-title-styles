@@ -1,19 +1,40 @@
 ===Genesis Site Title Styles===
 
-Contributors: savvyjackie, gscoolidge, cdils
+Contributors: JDELIA, txgspice, cdils
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GNJE45UUSUDB6
 Tags: css, site title, genesis, genesiswp, studiopress
 Requires at least: 3.8.0
-Tested up to: 4.1
+Tested up to: 4.2.2
 Stable tag: 1.01
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-Adds a span tag around each word in the site title for separate styling with css.
+This plugin adds a span tag around each word in the Genesis site title for separate styling with css. Styling is done with the nth-child() selector. 
 
-Read more about why we created the plugin here: savvyjackiedesigns.com/genesis-site-title-styles-plugin
+Style each word separately:
+
+Style the first word:
+
+.site-title span:nth-child(1) { 
+	add your styles here 
+}
+
+Style the second word:
+
+.site-title span:nth-child(2) { 
+	add your styles here 
+}
+
+Style the third word:
+
+.site-title span:nth-child(3) { 
+	add your styles here 
+}
+
+
+Read more about why we created the plugin here along with examples of how to style them: `http://savvyjackiedesigns.com/genesis-site-title-styles-plugin/`.
 
 == Installation ==
 
@@ -52,6 +73,9 @@ Above example would change the color and font weight of the second word.
 
 
 == Changelog ==
+= 1.10 =
+Replaced logic to recognize words that contain special characters. The plugin now will wrap a span tag around everything separated by a space. Any extra spaces are removed.
+For example: “BLANCO PRÍBAR®   INC.” would become “BLANCO PRÍBAR® INC.” and then wrapped in span tag. “<span>BLANCO</span> <span>PRÍBAR®</span> <span>INC.</span>”
 = 1.01 =
 Edited instructions.
 = 1.0 =

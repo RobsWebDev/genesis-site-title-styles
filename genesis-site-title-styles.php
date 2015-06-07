@@ -13,7 +13,7 @@
  * Plugin Name:       Genesis Site Title Styles
  * Plugin URI:        https://github.com/savvyjackie/genesis-site-title-styles
  * Description:       Adds a span tag to each word in the site title for separate styling with css using the nth-child() selector.
- * Version:           1.01
+ * Version:           1.10
  * Author:            Jackie D'Elia and Ginger Coolidge
  * Author URI:        http://www.savvyjackiedesigns.com
  * Text Domain:       genesis-site-title-styles
@@ -56,18 +56,25 @@ add_filter( 'genesis_seo_title', 'sjd_genesis_site_title', 15 );
  * @since 0.1
  */
 function sjd_genesis_site_title( $title ) {
-        
+    // old code removed
     // Assign site title to a variable
-    $custom_title = esc_attr( get_bloginfo( 'name' ) );
+    //$custom_title = esc_attr( get_bloginfo( 'name' ) );
+    //$custom_title = preg_replace( "([a-zA-Z.,!?0-9&#;'']+(?![^<]*>))", '<span>$0</span>', $custom_title );
     
-    // Add span tag to each word in title
-    $custom_title = preg_replace( '([a-zA-Z.,!?0-9]+(?![^<]*>))', '<span>$0</span>', $custom_title );
-   
+    // first lets remove any extra spaces found in the site title
+    // this will also be the title used for the title attribute without the spans
+    $clean_title = preg_replace('/\s+/', ' ',esc_attr( get_bloginfo( 'name' ) ));
+
+    // wrap the spaces in a span followed by a space 
+    // adding opening and closing span tag for the whole string
+    // $custom_title is the variable which will now contain spans
+    $custom_title = "<span>" . str_replace(" ", "</span> <span>", $clean_title) . "</span>";
+    
     // Don't change the rest of this
     // If we're on the front page or home page, use `h1` heading, otherwise us a `p` tag
     $tag = ( is_home() || is_front_page() ) ? 'h1' : 'p';
-    $inside = sprintf( '<a href="%s" title="%s">%s</a>', trailingslashit( home_url() ), esc_attr( get_bloginfo( 'name' ) ), $custom_title )
-;;
+    $inside = sprintf( '<a href="%s" title="%s">%s</a>', trailingslashit( home_url() ), esc_attr( $clean_title ), $custom_title );
+
     // Wrap link and title in semantic markup
     $title = sprintf ( '<%s class="site-title" itemprop="headline">%s</%s>', $tag, $inside, $tag );
     return $title;
